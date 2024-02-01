@@ -1,11 +1,11 @@
 <web-app>
     <servlet>
-        <servlet-name>Main Servlet</servlet-name>
+        <servlet-name>MainServlet</servlet-name>
         <servlet-class>MainServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Main Servlet</servlet-name>
+        <servlet-name>MainServlet</servlet-name>
         <url-pattern>/mainservlet</url-pattern>
     </servlet-mapping>
 </web-app>

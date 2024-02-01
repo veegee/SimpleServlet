@@ -6,8 +6,8 @@
     <initialize-in-order>true</initialize-in-order>
     <module>
         <web>
-            <web-uri>MainApplication.war</web-uri>
-            <context-root>main_application</context-root>
+            <web-uri>servlet.war</web-uri>
+            <context-root>app</context-root>
         </web>
     </module>
 </application>

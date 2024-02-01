@@ -1,37 +1,14 @@
 plugins {
-    id("java")
-    war
     ear
 }
 
-group = "org.veegee"
-version = "1.0"
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    implementation("javax.servlet:javax.servlet-api:3.1.0")
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-//    deploy(project(path = ":war", configuration = "war"))
+    deploy(project(":servlet", "archives"))
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.war {
-    // These are default
-//    webAppDirectory = file("src/main/webapp")  // default; enable and edit to override
-//    from("src/rootContent") // adds a file-set to the root of the archive
-//    webInf { from("src/additionalWebInf") } // adds a file-set to the WEB-INF dir.
-//    webXml = file("src/main/resources/WEB-INF/web.xml")  // default; enable and edit to override
-}
 
 tasks.ear {
-//    appDirectory = file("src/main/app")  // use application metadata found in this folder
+//    appDirectory = file("src/main/application")  // use application metadata found in this folder
 //    libDirName = "APP-INF/lib" // put dependent libraries into APP-INF/lib inside the generated EAR
     deploymentDescriptor {  // custom entries for application.xml:
 //      fileName = "application.xml"  // same as the default value
@@ -51,13 +28,5 @@ tasks.ear {
 //                appendChild(ownerDocument.createElement("data-source").apply { textContent = "my/data/source" })
 //            }
 //        }
-    }
-
-    project(":earproject") {
-        apply(plugin = "ear")
-    }
-
-    dependencies {
-        deploy(project(path = ":", ))
     }
 }
